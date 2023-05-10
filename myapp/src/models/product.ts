@@ -6,20 +6,12 @@ export default ()=>{
   const [open, setOpen] = useState(false);
   const [dates,setDates]=useState("");
   const [productArr,setProductArr]=useState([]);
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/master
   return {
     collapsed,setOpen,
     open,setCollapsed,
     breadArr,setBreadArr,
     dates,setDates,
-<<<<<<< HEAD
     productArr,setProductArr,
-=======
-    productArr,setProductArr
->>>>>>> origin/master
   };
 }
 //         id:2,
