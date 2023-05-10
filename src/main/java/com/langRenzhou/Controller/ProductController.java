@@ -1,5 +1,7 @@
 package com.langRenzhou.Controller;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.langRenzhou.Entity.Product;
 import com.langRenzhou.Service.ProductService;
 import jakarta.annotation.Resource;
@@ -26,8 +28,10 @@ public class ProductController {
     @GetMapping("/list")
     @ResponseBody
     @ResponseStatus(HttpStatus.OK)
-    public List<Product> listProduct(@RequestParam(value="page") Integer page,@RequestParam(value="num")Integer num){
-
-        return productService.getProducts(page,num);
+    public PageInfo listProduct(@RequestParam(value="page") Integer page,@RequestParam(value="num")Integer num){
+        PageHelper.startPage(page,num);
+        List<Product> res=productService.getProducts(page,num);
+        PageInfo  pageInfo= new PageInfo(res);
+        return pageInfo;
     }
 }
